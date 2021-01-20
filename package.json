@@ -5,20 +5,28 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" ",
+    "lint": "tslint -p tsconfig.json"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sametcelikbicak/enum2array.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["enum","array","enum to array","enum2array"],
+  "author": "Samet ÇELİKBIÇAK",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sametcelikbicak/enum2array/issues"
   },
   "homepage": "https://github.com/sametcelikbicak/enum2array#readme",
   "devDependencies": {
+    "prettier": "^2.2.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.1.3"
-  }
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }
