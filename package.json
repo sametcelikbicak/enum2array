@@ -1,7 +1,7 @@
 {
   "name": "enum2array",
   "version": "1.0.0",
-  "description": "A function to help convertion enums to an array",
+  "description": "A function to help converting enums to an array",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
