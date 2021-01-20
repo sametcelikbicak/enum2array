@@ -1,19 +1,30 @@
 {
   "name": "enum2array",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A function to help convertion enums to an array",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" ",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sametcelikbicak/enum2array.git"
   },
-  "keywords": ["enum","array","enum to array","enum2array"],
+  "keywords": [
+    "enum",
+    "array",
+    "enum to array",
+    "enum2array"
+  ],
   "author": "Samet ÇELİKBIÇAK",
   "license": "ISC",
   "bugs": {
