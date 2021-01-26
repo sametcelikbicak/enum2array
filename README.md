@@ -10,6 +10,13 @@ export enum CustomType {
     TypeC = 3,
     TypeD = 4,
 }
+
+export enum CustomValue {
+    TypeA = "valueA",
+    TypeB = "valueB",
+    TypeC = "valueC",
+    TypeD = "valueD",
+}
 ```
 
 Usage enum2array function
@@ -18,9 +25,11 @@ Usage enum2array function
 import { enum2array } from "enum2array";
 
 console.log(enum2array(CustomType));
+
+console.log(enum2array(CustomValue));
 ```
 
-That is the result about function
+That is the result about function with "CustomType" enum
 
 ```
 (4) [ArrayValue, ArrayValue, ArrayValue, ArrayValue]
@@ -28,6 +37,18 @@ That is the result about function
 1: ArrayValue {title: "TypeB", value: 2}
 2: ArrayValue {title: "TypeC", value: 3}
 3: ArrayValue {title: "TypeD", value: 4}
+length: 4
+__proto__: Array(0)
+```
+
+That is the result about function with "CustomValue" enum
+
+```
+(4) [ArrayValue, ArrayValue, ArrayValue, ArrayValue]
+0: ArrayValue {title: "TypeA", value: "valueA"}
+1: ArrayValue {title: "TypeB", value: "valueB"}
+2: ArrayValue {title: "TypeC", value: "valueC"}
+3: ArrayValue {title: "TypeD", value: "valueD"}
 length: 4
 __proto__: Array(0)
 ```
