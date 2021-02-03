@@ -1,8 +1,16 @@
-# Enum2Array
+# Enum2Array  [![npm version](https://badge.fury.io/js/enum2array.svg)](https://badge.fury.io/js/enum2array)
 
 A function to help converting enums to an array.
 
-Define an enum for testing
+## Installation
+
+```
+npm i enum2array
+```
+
+## Usage
+
+### Define an enum for testing
 ```
 export enum CustomType {
     TypeA = 1,
@@ -19,7 +27,7 @@ export enum CustomValue {
 }
 ```
 
-Usage enum2array function
+### Usage enum2array function
 
 ```
 import { enum2array } from "enum2array";
@@ -29,7 +37,9 @@ console.log(enum2array(CustomType));
 console.log(enum2array(CustomValue));
 ```
 
-That is the result about function with "CustomType" enum
+## Results
+
+### That is the result about function with "CustomType" enum
 
 ```
 (4) [ArrayValue, ArrayValue, ArrayValue, ArrayValue]
@@ -41,7 +51,7 @@ length: 4
 __proto__: Array(0)
 ```
 
-That is the result about function with "CustomValue" enum
+### That is the result about function with "CustomValue" enum
 
 ```
 (4) [ArrayValue, ArrayValue, ArrayValue, ArrayValue]
