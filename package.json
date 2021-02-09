@@ -28,7 +28,7 @@
     "frontend"
   ],
   "author": "Samet ÇELİKBIÇAK",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sametcelikbicak/enum2array/issues"
   },
