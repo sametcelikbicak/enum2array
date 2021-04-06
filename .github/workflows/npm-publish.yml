@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build 🏗
+    name: Build 🏗 & Publish 🚀
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -16,10 +16,6 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/      
       - run: npm install
-  publish:
-    name: Publish 🚀
-    runs-on: ubuntu-latest
-    steps:
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
