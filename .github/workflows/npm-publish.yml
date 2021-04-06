@@ -6,7 +6,8 @@ on:
       - master
 
 jobs:
-  build🏗:
+  build:
+    name: Build 🏗
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -15,7 +16,8 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/      
       - run: npm install
-  publish🚀:
+  publish:
+    name: Publish 🚀
     runs-on: ubuntu-latest
     steps:
       - run: npm publish --access public
