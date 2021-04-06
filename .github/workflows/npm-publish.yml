@@ -2,8 +2,7 @@ name: NPM Publish 🚀
 
 on:
   push:
-    brances: 
-      - master
+    branches: [ master ]
 
 jobs:
   build:
