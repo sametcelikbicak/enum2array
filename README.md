@@ -1,4 +1,4 @@
-# Enum2Array  [![npm version](https://badge.fury.io/js/enum2array.svg)](https://badge.fury.io/js/enum2array) ![npm](https://img.shields.io/npm/dt/enum2array?label=Downloads&logo=npm)
+# Enum2Array  [![npm version](https://badge.fury.io/js/enum2array.svg)](https://badge.fury.io/js/enum2array) ![npm](https://img.shields.io/npm/dt/enum2array?label=Downloads&logo=npm) [![ NPM Publish 🚀 ](https://github.com/sametcelikbicak/enum2array/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/sametcelikbicak/enum2array/actions/workflows/npm-publish.yml)
 A function to help converting enums to an array.
 
 ## Installation
