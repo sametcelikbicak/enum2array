@@ -10,7 +10,7 @@ npm i enum2array
 ## Usage
 
 ### Define an enum for testing
-```
+```typescript
 export enum CustomType {
     TypeA = 1,
     TypeB = 2,
@@ -28,7 +28,7 @@ export enum CustomValue {
 
 ### Usage enum2array function
 
-```
+```typescript
 import { enum2array } from "enum2array";
 
 console.log(enum2array(CustomType));
