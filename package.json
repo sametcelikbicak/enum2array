@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/sametcelikbicak/enum2array#readme",
   "devDependencies": {
-    "@types/jest": "^26.0.20",
+    "@types/jest": "^27.0.1",
     "jest": "^27.0.5",
     "prettier": "^2.2.1",
     "ts-jest": "^27.0.3",
