@@ -12,6 +12,7 @@ jobs:
     name: Build 🏗 & Publish 🚀
     runs-on: ubuntu-latest
     steps:
+      - uses: andymckay/cancel-action@0.2
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v2.4.0
         with:
@@ -19,5 +20,6 @@ jobs:
           registry-url: https://registry.npmjs.org/      
       - run: npm install
       - run: npm publish --access public
+        if: startsWith(github.ref, 'refs/tags')
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
