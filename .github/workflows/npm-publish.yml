@@ -17,8 +17,8 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/      
       - run: echo "GIT_TAG=`echo $(git describe --tags --abbrev=0)`" >> $GITHUB_ENV
-      - run: echo ${{ github.ref }}
-      - run: echo ::set-env name=RELEASE_VERSION::$(echo ${GITHUB_REF:10})
+      - run: echo ${{ github.ref }} --Tag-- ${{ env.GIT_TAG }}
+      - run: echo "RELEASE_VERSION=$(echo ${GITHUB_REF:10})
       - run: |
           echo $RELEASE_VERSION
           echo ${{ env.RELEASE_VERSION }}
