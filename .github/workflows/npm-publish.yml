@@ -12,6 +12,11 @@ jobs:
     name: Build 🏗 & Publish 🚀
     runs-on: ubuntu-latest
     steps:
+      - name: Check active tag
+        if: github.event_name == 'push'
+        run: |
+          echo "$(git describe --tags --exact-match $COMMIT || :)"
+          exit 0
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v2.4.0
         with:
