@@ -7,24 +7,23 @@ on:
 
 jobs:
   build:
-    name: Build 🏗 & Publish 🚀
+    name: Build 🏗
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-        if: steps.check.outputs.triggered == 'true'
       - uses: actions/setup-node@v2.4.0
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/     
-      - name: Get commit 
-        run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
-        if: steps.check.outputs.triggered == 'true'
-      - name: Check commit tag exists or not
-        run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
-        if: steps.check.outputs.triggered == 'true'
-      - name: Decide that continue build or not with git tag control
+      - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
+      - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
+          
+  publish:
+    name: Publish 🚀
+    runs-on: ubuntu-latest
+    steps:
       - uses: andymckay/cancel-action@0.2
-        if: ${{ (steps.check.outputs.triggered == 'true') && (startsWith(${{ env.GIT_TAG }}, 'v')) }}
+        if: startsWith(${{ env.GIT_TAG }}, 'v')) }
           
       - run: npm install
       - run: npm publish --access public
