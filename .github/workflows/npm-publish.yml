@@ -18,7 +18,7 @@ jobs:
       - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
       - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
       - run: |
-          if git describe --exact-match --tags @ 2>&1; then 
+          if git describe --exact-match --tags ${{ env.GIT_COMMIT }} 2>&1; then 
           echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
           else 
           echo "GIT_TAG=`echo NO_GIT_TAG`" >> $GITHUB_ENV
