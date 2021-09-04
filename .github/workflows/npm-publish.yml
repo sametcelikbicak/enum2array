@@ -29,7 +29,7 @@ jobs:
           echo "GIT_TAG-->${{ env.GIT_TAG }}"
       - run: |
           if ${{ env.GIT_TAG }}=='NO_GIT_TAG'; then
-          echo "no git tag..."
+          echo "No git tag found, action cancelled..."
           exit 1
           fi
 
