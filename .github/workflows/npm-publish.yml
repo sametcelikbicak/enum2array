@@ -18,6 +18,12 @@ jobs:
       - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
       - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
       - run: |
+          if msg=`git describe --exact-match --tags @ 2>&1`; then 
+          echo tagged $msg; 
+          else 
+          echo "no git tag found" 
+          fi
+      - run: |
           echo "Environment variables from commit"
           echo "GIT_COMMIT-->${{ env.GIT_COMMIT }}"
           echo "GIT_TAG-->${{ env.GIT_TAG }}"
@@ -28,11 +34,11 @@ jobs:
           fi
 
       - uses: andymckay/cancel-action@0.2
-        if: failure()
+        if: ${{ failure() }}
           
       - run: npm install
-        if: success()
+        if: ${{ success() }}
       - run: npm publish --access public
-        if: success()
+        if: ${{ success() }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
