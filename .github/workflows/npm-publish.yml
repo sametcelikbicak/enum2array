@@ -20,8 +20,8 @@ jobs:
       - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
 
   publish:  
-    name: Publish 🚀
     if: success()
+    name: Publish 🚀
     runs-on: ubuntu-latest
     steps: 
       - uses: andymckay/cancel-action@0.2
