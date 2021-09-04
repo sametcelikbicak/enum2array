@@ -18,17 +18,18 @@ jobs:
       - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
       - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
       - run: |
-          if msg=`git describe --exact-match --tags @ 2>&1`; then 
-          echo tagged $msg; 
+          if gitTag=`git describe --exact-match --tags @ 2>&1`; then 
+          echo there is git-tag--> $gitTag; 
+          echo "GIT_TAG=`echo ${{ gitTag }}`" >> $GITHUB_ENV
           else 
-          echo "no git tag found" 
+          echo "GIT_TAG=`echo NO_GIT_TAG`" >> $GITHUB_ENV
           fi
       - run: |
           echo "Environment variables from commit"
           echo "GIT_COMMIT-->${{ env.GIT_COMMIT }}"
           echo "GIT_TAG-->${{ env.GIT_TAG }}"
       - run: |
-          if ${{ env.GIT_TAG }}==''; then
+          if ${{ env.GIT_TAG }}=='NO_GIT_TAG'; then
           echo "no git tag..."
           exit 1
           fi
