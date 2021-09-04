@@ -38,8 +38,7 @@ jobs:
           echo "Environment variables from commit"
           echo "GIT_COMMIT-->${{ env.GIT_COMMIT }}"
           echo "GIT_TAG-->${{ env.GIT_TAG }}"
-      - uses: andymckay/cancel-action@0.2
-        if: success() && startsWith(${{ env.GIT_TAG }}, 'v'))
+
           
       - run: npm install
         if: success()
