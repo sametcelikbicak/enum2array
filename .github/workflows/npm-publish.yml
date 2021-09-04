@@ -32,7 +32,7 @@ jobs:
           fi
 
       - uses: andymckay/cancel-action@0.2
-        if: ! startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') != true
           
       - run: npm install
         if: startsWith(github.ref, 'refs/tags/v')
