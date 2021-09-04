@@ -21,13 +21,8 @@ jobs:
           echo "Environment variables from commit"
           echo "GIT_COMMIT-->${{ env.GIT_COMMIT }}"
           echo "GIT_TAG-->${{ env.GIT_TAG }}"
-        if: ${{ success() }}
       - run: |
-          echo "tag bulma adımları"
-          echo "VERSION=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
-          echo "VERSION-->${{ env.VERSION }}"
-          echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
-          echo "TAG-->${{ env.TAG }}"
+          echo "github.ref: ${{ github.ref }}"
       - run: |
           if [[ ${{ env.GIT_TAG }} == v* ]] ; then
           echo "Tag found..."
@@ -35,14 +30,13 @@ jobs:
           echo "No git tag found, action cancelled..."
           exit 1
           fi
-        if: ${{ success() }}
 
       - uses: andymckay/cancel-action@0.2
-        if: ${{ failure() }}
+        if: ! startsWith(github.ref, 'refs/tags/v')
           
       - run: npm install
-        if: ${{ success() }}
+        if: startsWith(github.ref, 'refs/tags/v')
       - run: npm publish --access public
-        if: ${{ success() }}
+        if: startsWith(github.ref, 'refs/tags/v')
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
