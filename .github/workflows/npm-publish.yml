@@ -23,7 +23,7 @@ jobs:
           echo "GIT_TAG-->${{ env.GIT_TAG }}"
         if: ${{ success() }}
       - run: |
-          if ${{ startsWith(${{ env.GIT_TAG }}, 'v') }}; then
+          if [[ ${{ env.GIT_TAG }} == v* ]] ; then
           echo "Tag found..."
           else
           echo "No git tag found, action cancelled..."
