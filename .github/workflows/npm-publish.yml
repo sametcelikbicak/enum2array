@@ -18,26 +18,23 @@ jobs:
       - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
       - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
       - run: |
-          if echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV then 
-          echo "tag was captured from commit"
-          else 
-          echo "GIT_TAG=`echo NO_GIT_TAG`" >> $GITHUB_ENV
-          fi
-      - run: |
           if git describe --exact-match --tags @ 2>&1; then 
           echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
           else 
           echo "GIT_TAG=`echo NO_GIT_TAG`" >> $GITHUB_ENV
           fi
+        if: ${{ success() }}
       - run: |
           echo "Environment variables from commit"
           echo "GIT_COMMIT-->${{ env.GIT_COMMIT }}"
           echo "GIT_TAG-->${{ env.GIT_TAG }}"
+        if: ${{ success() }}
       - run: |
           if ${{ env.GIT_TAG }}=='NO_GIT_TAG'; then
           echo "No git tag found, action cancelled..."
           exit 1
           fi
+        if: ${{ success() }}
 
       - uses: andymckay/cancel-action@0.2
         if: ${{ failure() }}
