@@ -10,11 +10,11 @@ jobs:
     name: Build 🏗 & Publish 🚀
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
       - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
       - uses: andymckay/cancel-action@0.2
         if: startsWith(${{ env.GIT_TAG }}, 'v')
-      - uses: actions/checkout@v1
       - uses: actions/setup-node@v2.4.0
         with:
           node-version: 12
