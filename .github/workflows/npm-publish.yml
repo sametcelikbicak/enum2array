@@ -22,7 +22,7 @@ jobs:
           echo "GIT_COMMIT-->${{ env.GIT_COMMIT }}"
           echo "GIT_TAG-->${{ env.GIT_TAG }}"
       - run: |
-          if startsWith(${{ env.GIT_TAG }}, ''); then
+          if ${{ env.GIT_TAG }}==''; then
           echo "no git tag..."
           exit 1
           fi
