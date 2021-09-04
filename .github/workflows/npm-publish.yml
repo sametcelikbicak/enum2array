@@ -10,10 +10,10 @@ jobs:
     name: Build 🏗
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.4.0
         with:
-          node-version: 12
+          node-version: 14
           registry-url: https://registry.npmjs.org/     
       - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
       - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
@@ -26,20 +26,23 @@ jobs:
     if: success()
     name: Publish 🚀
     runs-on: ubuntu-latest
-    steps: 
-      - run: |
-          echo "Already set environment variables"
-          echo "GIT_COMMIT-->${{ env.GIT_COMMIT }}"
-          echo "GIT_TAG-->${{ env.GIT_TAG }}"
-      - uses: actions/checkout@v1
+    steps:
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.4.0
         with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/ 
+          node-version: 14
+          registry-url: https://registry.npmjs.org/     
+      - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
+      - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
+      - run: |
+          echo "Environment variables from commit"
+          echo "GIT_COMMIT-->${{ env.GIT_COMMIT }}"
+          echo "GIT_TAG-->${{ env.GIT_TAG }}"
       - uses: andymckay/cancel-action@0.2
-        if: startsWith(${{ env.GIT_TAG }}, 'v'))
+        if: success() && startsWith(${{ env.GIT_TAG }}, 'v'))
           
       - run: npm install
+        if: success()
       - run: npm publish --access public
         if: startsWith(${{ env.GIT_TAG }}, 'v')
         env:
