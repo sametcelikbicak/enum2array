@@ -17,15 +17,15 @@ jobs:
           registry-url: https://registry.npmjs.org/     
       - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
       - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
-      - run: echo "GIT_TAG=`echo NO_GIT_TAG`" >> $GITHUB_ENV
-        if: ${{ failure() }}
       - run: |
           echo "Environment variables from commit"
           echo "GIT_COMMIT-->${{ env.GIT_COMMIT }}"
           echo "GIT_TAG-->${{ env.GIT_TAG }}"
         if: ${{ success() }}
       - run: |
-          if ${{ env.GIT_TAG }}=='NO_GIT_TAG'; then
+          if ${{ startsWith(${{ env.GIT_TAG }}, 'v') }}; then
+          echo "Tag found..."
+          else
           echo "No git tag found, action cancelled..."
           exit 1
           fi
