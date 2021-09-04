@@ -27,6 +27,10 @@ jobs:
     name: Publish 🚀
     runs-on: ubuntu-latest
     steps: 
+      - run: |
+          echo "Already set environment variables"
+          echo "GIT_COMMIT-->${{ env.GIT_COMMIT }}"
+          echo "GIT_TAG-->${{ env.GIT_TAG }}"
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v2.4.0
         with:
