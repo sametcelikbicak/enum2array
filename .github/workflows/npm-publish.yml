@@ -23,6 +23,12 @@ jobs:
           echo "GIT_TAG-->${{ env.GIT_TAG }}"
         if: ${{ success() }}
       - run: |
+          echo "tag bulma adımları"
+          echo "VERSION=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
+          echo "VERSION-->${{ env.VERSION }}"
+          echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+          echo "TAG-->${{ env.TAG }}"
+      - run: |
           if [[ ${{ env.GIT_TAG }} == v* ]] ; then
           echo "Tag found..."
           else
