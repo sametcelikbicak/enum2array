@@ -10,7 +10,6 @@ jobs:
     name: Build 🏗 & Publish 🚀
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
       - uses: actions/checkout@v1
         if: steps.check.outputs.triggered == 'true'
       - uses: actions/setup-node@v2.4.0
