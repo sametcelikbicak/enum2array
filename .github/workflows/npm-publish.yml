@@ -26,9 +26,9 @@ jobs:
           echo "no git tag..."
           exit 1
           fi
-      - name: Cancel action...
-        if: failure()
+
       - uses: andymckay/cancel-action@0.2
+        if: failure()
           
       - run: npm install
         if: success()
