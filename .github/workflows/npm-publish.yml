@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build 🏗
+    name: Build 🏗 & Publish 🚀
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,29 +21,18 @@ jobs:
           echo "Environment variables from commit"
           echo "GIT_COMMIT-->${{ env.GIT_COMMIT }}"
           echo "GIT_TAG-->${{ env.GIT_TAG }}"
-
-  publish:  
-    if: success()
-    name: Publish 🚀
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.4.0
-        with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org/     
-      - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
-      - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
       - run: |
-          echo "Environment variables from commit"
-          echo "GIT_COMMIT-->${{ env.GIT_COMMIT }}"
-          echo "GIT_TAG-->${{ env.GIT_TAG }}"
+          if startsWith(${{ env.GIT_TAG }}, ''); then
+          echo "no git tag..."
+          exit 1
+          fi
+      - name: Cancel action...
+        if: failure()
       - uses: andymckay/cancel-action@0.2
-        if: success() && startsWith(${{ env.GIT_TAG }}, 'v'))
           
       - run: npm install
         if: success()
       - run: npm publish --access public
-        if: startsWith(${{ env.GIT_TAG }}, 'v')
+        if: success()
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
