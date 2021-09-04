@@ -17,6 +17,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
       - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
+      - run: echo ${{ env.GIT_TAG }} == v*
       - run: |
           if [[ ${{ env.GIT_TAG }} == v* ]] ; then
           echo "Tag found..."
@@ -25,8 +26,9 @@ jobs:
           exit 1
           fi
 
+
       - uses: andymckay/cancel-action@0.2
-        if: startsWith(github.ref, 'refs/tags/v') != true
+        if: ${{ env.GIT_TAG }} == v*
           
       - run: npm install
       - run: npm publish --access public
