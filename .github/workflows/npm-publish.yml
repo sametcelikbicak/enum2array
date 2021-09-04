@@ -21,7 +21,7 @@ jobs:
       - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
         if: steps.check.outputs.triggered == 'true'
       - uses: andymckay/cancel-action@0.2
-        if: ${{ (steps.check.outputs.triggered == 'true') && (startsWith(${{ env.GIT_TAG }}, 'v')) }}
+        if: (steps.check.outputs.triggered == 'true') && (startsWith(${{ env.GIT_TAG }}, 'v'))
           
       - run: npm install
       - run: npm publish --access public
