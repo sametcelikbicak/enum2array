@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: andymckay/cancel-action@0.2
         if: startsWith(${{ env.GIT_TAG }}, 'v')) }
-          
+
       - run: npm install
       - run: npm publish --access public
         if: startsWith(${{ env.GIT_TAG }}, 'v')
