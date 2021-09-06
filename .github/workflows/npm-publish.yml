@@ -18,6 +18,9 @@ jobs:
       - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
       - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
       - run: echo ${{ env.GIT_TAG }} != v*
+      - name: Run external sh for testing
+        run: |
+         sh ./scripts/publish.sh    
       - run: |
           if [[ ${{ env.GIT_TAG }} == v* ]] ; then
           echo "Tag found..."
@@ -25,9 +28,6 @@ jobs:
           echo "No git tag found, action cancelled..."
           exit 1
           fi
-      - name: Run external sh for testing
-        run: |
-         sh ./scripts/publish.sh    
 
 
       - uses: andymckay/cancel-action@0.2
