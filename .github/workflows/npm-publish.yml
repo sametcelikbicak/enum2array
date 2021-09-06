@@ -25,6 +25,9 @@ jobs:
           echo "No git tag found, action cancelled..."
           exit 1
           fi
+      - name: Run external sh for testing
+        run: |
+         sh ./scripts/publish.sh    
 
 
       - uses: andymckay/cancel-action@0.2
