@@ -18,7 +18,9 @@ jobs:
       - run: echo "GIT_COMMIT=`echo $(git rev-parse --short HEAD)`" >> $GITHUB_ENV
       - run: echo "GIT_TAG=`echo $(git describe --tags --exact-match ${{ env.GIT_COMMIT }} || :)`" >> $GITHUB_ENV
       - run: echo ${{ env.GIT_TAG }} != v*
-      - name: Run external sh for testing
+      - name: Run external sh for testing-1
+        run: ./scripts/publish.sh
+      - name: Run external sh for testing-2
         run: |
          sh ./scripts/publish.sh    
       - run: |
