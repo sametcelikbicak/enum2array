@@ -3,6 +3,8 @@
 ## v.1.1.14
 - Add CHANGELOG file
 - Update README file with CodeQL Analyze badge
+- Rename `publish.sh` to `checkTag.sh`
+- Update `npm-publish.yml`
 
 ## 1.1.13
 - Update action scripts with git tag control
