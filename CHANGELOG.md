@@ -1,5 +1,7 @@
 # enum2array function changes
 
+## v.1.1.15
+- Update README
 ## v.1.1.14
 - Add CHANGELOG file
 - Update README file with CodeQL Analyze badge
