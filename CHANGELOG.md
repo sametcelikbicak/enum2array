@@ -1,5 +1,7 @@
 # enum2array function changes
 
+## v.1.1.16
+- Update README
 ## v.1.1.15
 - Update README
 ## v.1.1.14
