@@ -7,5 +7,5 @@ if [[ ${GIT_TAG} == v* ]] ; then
     echo "$GIT_TAG Tag found..."
 else
     echo "No git tag found, action cancelled..."
-    exit 1
+    exit 0
 fi
