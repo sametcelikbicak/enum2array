@@ -1,5 +1,12 @@
 # enum2array function changes
 
+## v.1.1.18
+- Fix dependabot issues
+- Update README
+- Add missing `v.1.1.17` to CHANGELOG
+## v.1.1.17
+- Add GitHub action for test
+- Update README
 ## v.1.1.16
 - Update README
 ## v.1.1.15
