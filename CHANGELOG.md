@@ -1,6 +1,7 @@
 # enum2array function changes
 
-
+## v.1.1.20
+- Add logo
 ## v.1.1.19
 - Fix dependabot issues
 ## v.1.1.18
