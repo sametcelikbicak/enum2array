@@ -1,5 +1,8 @@
 # enum2array function changes
 
+
+## v.1.1.19
+- Fix dependabot issues
 ## v.1.1.18
 - Fix dependabot issues
 - Update README
