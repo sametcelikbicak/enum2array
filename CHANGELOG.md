@@ -1,5 +1,7 @@
 # enum2array function changes
 
+## v.2022.08.06
+- Change version number to year.month.day instead of major.minor.patch numbers.
 ## v.1.1.30
 - Fix dependabot issues
 ## v.1.1.29
