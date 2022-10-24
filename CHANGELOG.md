@@ -1,7 +1,9 @@
 # enum2array function changes
 
 ## new-version
-- Add CODE_OF_CONDUCT
+- Add CODE_OF_CONDUCT file
+- Add CONTRIBUTING file
+- Update README file
 
 ## v.2022.10.23
 - Fix dependabot issues
