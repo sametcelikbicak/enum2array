@@ -1,10 +1,9 @@
 # enum2array function changes
 
-## new-version
+## v.2022.11.11
 - Add CODE_OF_CONDUCT file
 - Add CONTRIBUTING file
 - Update README file
-
 ## v.2022.10.23
 - Fix dependabot issues
 ## v.2022.09.10
@@ -53,7 +52,6 @@
 - Update README file with CodeQL Analyze badge
 - Rename `publish.sh` to `checkTag.sh`
 - Update `npm-publish.yml`
-
 ## 1.1.13
 - Update action scripts with git tag control
 ## 1.1.12
