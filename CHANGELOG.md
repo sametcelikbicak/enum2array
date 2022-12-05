@@ -1,56 +1,56 @@
 # enum2array function changes
 
-## New version
+## 2022.12.05
 - Add stars badge
-
-## v.2022.11.11
+- Fix dependabot issues
+## 2022.11.11
 - Add CODE_OF_CONDUCT file
 - Add CONTRIBUTING file
 - Update README file
-## v.2022.10.23
+## 2022.10.23
 - Fix dependabot issues
-## v.2022.09.10
+## 2022.09.10
 - Fix dependabot issues
-## v.2022.08.06
+## 2022.08.06
 - Change version number to year.month.day instead of major.minor.patch numbers.
-## v.1.1.30
+## 1.1.30
 - Fix dependabot issues
-## v.1.1.29
+## 1.1.29
 - Fix dependabot issues
-## v.1.1.28
+## 1.1.28
 - Fix dependabot issues
-## v.1.1.27
+## 1.1.27
 - Fix dependabot issues
-## v.1.1.26
+## 1.1.26
 - Fix dependabot issues
-## v.1.1.25
+## 1.1.25
 - Fix dependabot issues
-## v.1.1.24
+## 1.1.24
 - Fix dependabot issues
-## v.1.1.23
+## 1.1.23
 - Fix dependabot issues
-## v.1.1.22
+## 1.1.22
 - Fix dependabot issues
 - Update README
 - Deactivate NPM Publish script
-## v.1.1.21
+## 1.1.21
 - Fix dependabot issues
-## v.1.1.20
+## 1.1.20
 - Add logo
-## v.1.1.19
+## 1.1.19
 - Fix dependabot issues
-## v.1.1.18
+## 1.1.18
 - Fix dependabot issues
 - Update README
 - Add missing `v.1.1.17` to CHANGELOG
-## v.1.1.17
+## 1.1.17
 - Add GitHub action for test
 - Update README
-## v.1.1.16
+## 1.1.16
 - Update README
-## v.1.1.15
+## 1.1.15
 - Update README
-## v.1.1.14
+## 1.1.14
 - Add CHANGELOG file
 - Update README file with CodeQL Analyze badge
 - Rename `publish.sh` to `checkTag.sh`
