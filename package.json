@@ -1,6 +1,6 @@
 {
   "name": "enum2array",
-  "version": "2022.12.5",
+  "version": "2023.1.2",
   "description": "A function to help converting enums to an array",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
