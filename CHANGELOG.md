@@ -1,5 +1,7 @@
 # enum2array function changes
 
+## 2023.1.2
+- Fix dependabot issues
 ## 2022.12.05
 - Add stars badge
 - Fix dependabot issues
